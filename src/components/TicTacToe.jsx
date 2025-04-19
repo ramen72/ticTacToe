@@ -49,13 +49,13 @@ function calculateWinner(items){
     ]
 
     for( let i = 0; i < winnerCombinationS.length; i++){
-        const [a, b,c] = winnerCombinationS[i]
+        const [a, b, c] = winnerCombinationS[i]
 
         if( items[a] && items[a] === items[b] && items[a] === items[c]){
             return items[a]
         }
-        return items.includes(null) ? null : "Draw";
     }
+    return items.includes(null) ? null : "Draw";
 }
 
 export default TicTacToe;
