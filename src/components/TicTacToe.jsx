@@ -7,12 +7,12 @@ const TicTacToe = () => {
 
     const winner = calculateWinner(board)
 
-    let status = winner ? `${winner}` : `It's ${isXNext ? "X" : "0"} turn`;
+    let status = winner ? `Winner : ${winner}` : `It's ${isXNext ? "X" : "0"} turn`;
 
     let handleClick = (index) => {
         if(board[index] || winner) return
         const newBoard = [...board]
-        newBoard[index] = isXNext ? 'X' : '0';
+        newBoard[index] = isXNext ? 'X' : 'O';
         setBoard(newBoard);
         setIsXNext(!isXNext)
     }
@@ -36,7 +36,6 @@ const TicTacToe = () => {
         </>
     );
 };
-
 function calculateWinner(items){
     const winnerCombinationS = [
         [0, 1, 2],
@@ -55,6 +54,8 @@ function calculateWinner(items){
         if( items[a] && items[a] === items[b] && items[a] === items[c]){
             return items[a]
         }
+        return items.includes(null) ? null : "Draw";
     }
 }
+
 export default TicTacToe;
