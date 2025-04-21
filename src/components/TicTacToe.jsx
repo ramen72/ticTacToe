@@ -7,7 +7,7 @@ const TicTacToe = () => {
 
     const winner = calculateWinner(board)
 
-    let status = winner ? `Winner : ${winner}` : `It's ${isXNext ? "X" : "0"} turn`;
+    let status =  winner === 'Draw'? `Game is ${winner}` : winner ? `Winner : ${winner}` : `It's ${isXNext ? "X" : "0"} turn`;
 
     let handleClick = (index) => {
         if(board[index] || winner) return
